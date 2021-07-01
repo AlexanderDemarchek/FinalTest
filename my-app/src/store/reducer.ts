@@ -2,7 +2,7 @@ import {StateApp, Actions} from './types'
 
 const initialState:StateApp = {
     status: 'auth',
-    checkPassword: true,
+    checkPassword: false,
     login: '',
     password: ''
 };
@@ -12,29 +12,25 @@ export const reducer = (state = initialState,action:Actions) => {
         case 'send':
             return {
                 ...state,
-                status: 'loading'
+                status: 'loading',
+                login: action.login,
+                password: action.password
             };
         case "rememberPassword":
             return {
                 ...state,
                 checkPassword: action.checkPassword
             };
-        case "logOut":
-            return{
-                ...state,
-                status: 'auth'
-            }
         case "success":
             return {
                 ...state,
-                status: 'success',
-                login: action.login,
-                password: action.password
+                status: 'success'
             }
         case "error":
             return {
                 ...state,
-                status: 'error'
+                status: 'error',
+                login: action.login
             }
         default:
             return state;

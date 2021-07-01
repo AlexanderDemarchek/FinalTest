@@ -10,6 +10,7 @@ import {
     BrowserRouter as Router,
     Switch,
     Route,
+    useHistory,
     Link
 } from "react-router-dom";
 

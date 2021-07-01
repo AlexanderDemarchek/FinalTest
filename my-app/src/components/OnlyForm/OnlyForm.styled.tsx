@@ -8,7 +8,7 @@ interface IInput {
 export const Form = styled.form`
   display: flex;
   flex-direction: column;
-  max-width: 400px;
+  max-width: 500px;
   width: 100%;
   margin: 40px auto;
 `;
@@ -22,8 +22,7 @@ export const FormControl = styled.label`
 
 export const Label = styled.span`
   font-size: 14px;
-  margin-bottom: 10px;
-  margin-left: 5px;
+  margin-bottom: 10px;  
 `;
 
 export const Input = styled.input<IInput>`
@@ -32,12 +31,36 @@ export const Input = styled.input<IInput>`
   border: none;
   transition: border 0.3s;
   border-radius: ${({ theme }) => theme.variables.borderRadius};
-  outline: none;
   background-color: ${({ theme }) => theme.colors.gray};
   
   &:hover,
   &:focus {
     outline: none;
+  }
+`;
+
+export const InputServerError = styled.div`
+  display: flex;
+  align-items: center;
+  padding-left: 15px;
+  height: 40px;
+  font-size: 14px;
+  background-color: #FDF0EF ;
+  margin-bottom: 10px;
+  border: solid indianred 1px;
+  border-radius: ${({theme}) => theme.variables.borderRadius};
+  
+
+  div{
+    display: flex;
+    justify-content: center;
+    color: #F97A70;
+    background-color: #FCD1CD;
+    border-radius: 100%;
+    width: 16px;
+    height: 16px;
+    margin-bottom: 1px;
+    margin-right: 10px;
   }
 `;
 

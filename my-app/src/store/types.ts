@@ -13,24 +13,21 @@ interface RememberPasswordAction {
 
 interface ErrorAction{
     type: 'error';
+    login: string;
 }
 
 interface SendAction{
     type: 'send';
-}
-
-interface SuccessAction{
-    type: 'success';
     login:string;
     password:string;
 }
 
-interface LogOutAction{
-    type: 'logOut';
+interface SuccessAction{
+    type: 'success';
 }
 
+
 export type Actions = SendAction
-    |LogOutAction
     |RememberPasswordAction
     |SuccessAction
     |ErrorAction;
