@@ -1,20 +1,32 @@
 import React from 'react';
+import {Props} from '../App/App';
 import {Container, Text, StrongText, LogOut} from './Profile.styles';
-import {Link} from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
-import {getRootState} from "../../store/selectors";
-import {errorAction, rememberPassword, send, success} from "../../store/actions";
+import {
+    Redirect,
+    Route,
+    Link
+} from "react-router-dom";
 
-const Profile : React.FC = () =>
+const Profile : React.FC<Props> = (props) =>
 {
-    const state = useSelector(getRootState);
-    const dispatch = useDispatch();
-    console.log(state);
-    return <Container>
-        <Text>Здравствуйте, <StrongText>steve.jobs@example.com</StrongText></Text>
-        <Link to="/"><LogOut>Выйти</LogOut></Link>
+    const container =
+    <Container>
+        <Text>Здравствуйте,
+            <StrongText> {localStorage.getItem('login')}</StrongText>
+        </Text>
+        <Link to="/" onClick = {() => {localStorage.clear();
+                                props.setStatus('auth')}}>
+            <LogOut>Выйти</LogOut>
+        </Link>
     </Container>
+
+    return <Route
+        render={() =>
+        localStorage.getItem('login') ? container : (<Redirect to={{pathname:"/"}}/>)
+        }
+    />
 };
 
 export default Profile;
+
 

@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import "../assets/Gilroy-UltraLight.woff"
 
 const Layout = styled.div`
     position: relative;

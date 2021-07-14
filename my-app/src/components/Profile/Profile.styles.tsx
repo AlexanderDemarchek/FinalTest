@@ -4,6 +4,8 @@ export const Container = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    max-width: 70%;
+    max-height: 70%;
 `;
 
 export const Text = styled.span`

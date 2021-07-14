@@ -7,7 +7,7 @@ const theme = {
         black: '#000000',
         gray: '#F5F5F5',
         red: '#ff6666',
-        purple: '#6600ff'
+        blue: '#5379f5'
     },
     breakpoints: {},
 };
